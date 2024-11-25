@@ -3,12 +3,25 @@ import Body from "./Components/Body"
 import Navbar from "./Components/Navbar"
 import Store from "./Utils/Store"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import MainContainer from "./Components/MainContainer"
+import WatchPage from "./Components/WatchPage"
 
 const router = createBrowserRouter(
   [
     {
       path: '/',
-      element: <Body />
+      element: <Body />,
+      children: [
+        {
+          path: '/',
+          element: <MainContainer/>
+        },
+        {
+          path: 'watch',
+          element: <WatchPage />
+        }
+
+      ]
     }
   ]
 )
